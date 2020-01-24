@@ -197,11 +197,12 @@ var SuggestionsList = function SuggestionsList(_ref3) {
       showNote = _ref3$showNote === undefined ? true : _ref3$showNote,
       suggestionIndex = _ref3.suggestionIndex,
       suggestions = _ref3.suggestions,
-      type = _ref3.type;
+      type = _ref3.type,
+      suggestionsStyles = _ref3.suggestionsStyles;
 
   return !!(suggestions.length || actions.length) && React.createElement(
     'div',
-    { className: 'react-dadata__suggestions' },
+    { className: 'react-dadata__suggestions', style: suggestionsStyles },
     showNote && React.createElement(Note, null),
     suggestions.map(function (_ref4, index) {
       var value = _ref4.value,
@@ -270,7 +271,8 @@ var ReactDadata = function (_React$Component) {
           customInput = _props.customInput,
           placeholder = _props.placeholder,
           showNote = _props.showNote,
-          styles = _props.styles;
+          styles = _props.styles,
+          suggestionsStyles = _props.suggestionsStyles;
 
 
       var showSuggestionsList = inputFocused && showSuggestions;
@@ -302,7 +304,8 @@ var ReactDadata = function (_React$Component) {
           query: query,
           type: type,
           showNote: showNote,
-          onSuggestionClick: this.onSuggestionClick
+          onSuggestionClick: this.onSuggestionClick,
+          suggestionsStyles: suggestionsStyles
         })
       );
     }
@@ -321,7 +324,8 @@ var _initialiseProps = function _initialiseProps() {
     showSuggestions: true,
     suggestionIndex: 0,
     suggestions: [],
-    type: this.props.type || 'address'
+    type: this.props.type || 'address',
+    suggestionsStyles: {}
   };
   this.xhr = new XMLHttpRequest();
 
