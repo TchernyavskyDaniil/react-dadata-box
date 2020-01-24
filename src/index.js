@@ -137,11 +137,12 @@ const SuggestionsList = ({
   showNote = true,
   suggestionIndex,
   suggestions,
-  type
+  type,
+  suggestionsStyles,
 }) => {
   return (
     !!(suggestions.length || actions.length) && (
-      <div className="react-dadata__suggestions">
+      <div className="react-dadata__suggestions" style={suggestionsStyles}>
         {showNote && <Note />}
         {suggestions.map(({ value, data }, index) => (
           <div
@@ -174,7 +175,8 @@ class ReactDadata extends React.Component {
     showSuggestions: true,
     suggestionIndex: 0,
     suggestions: [],
-    type: this.props.type || 'address'
+    type: this.props.type || 'address',
+    suggestionsStyles: {},
   };
 
   xhr = new XMLHttpRequest();
@@ -343,7 +345,8 @@ class ReactDadata extends React.Component {
       customInput,
       placeholder,
       showNote,
-      styles
+      styles,
+      suggestionsStyles,
     } = this.props;
 
     const showSuggestionsList = inputFocused && showSuggestions;
@@ -379,6 +382,7 @@ class ReactDadata extends React.Component {
             type={type}
             showNote={showNote}
             onSuggestionClick={this.onSuggestionClick}
+            suggestionsStyles={suggestionsStyles}
           />
         )}
       </div>

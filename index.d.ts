@@ -90,6 +90,7 @@ export interface DadataSuggestion {
     unparsed_parts?: string | null;
     source?: string | null;
     qc?: string | null;
+    suggestionsStyles?: object | null;
   };
 }
 
